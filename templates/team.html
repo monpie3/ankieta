@@ -1,0 +1,44 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <h1>Cześć!</h1>
+  <h2>Poznajmy się :) </h2>
+   <div class="jumbotron">
+     <div></div>
+      <figure style='float:left;padding:5px'>
+        <img src="/static/photo/t1.jpg" width="150" height="150" alt="Daria jest teraz niedostępna" >
+        <figcaption>Daria Akin</figcaption>
+      </figure>
+      <figure style='float:left;padding:5px'>
+        <img src="/static/photo/t2.jpg"  width="150" height="150"  alt="Natalia jest teraz niedostępna">
+        <figcaption>Natalia Łuczywo</figcaption>
+      </figure>    
+      <figure style='float:left;padding:5px'>
+        <img src="/static/photo/t3.jpg"  width="150" height="150"  alt="Monika jest teraz niedostępna">
+        <figcaption>Monika Pierzchała</figcaption>
+      </figure>    
+      <figure style='float:left;padding:5px'>
+        <img src="/static/photo/t4.jpg"  width="150" height="150"  alt="Asia jest teraz niedostępna">
+        <figcaption>Joanna Samek</figcaption>
+      </figure>    
+      <figure style='padding:5px'>
+        <img src="/static/photo/t5.jpg"  width="150" height="150"  alt="Justyna jest teraz niedostępna">
+        <figcaption>Justyna Różycka</figcaption>
+      </figure>
+  </div>
+
+  <div class="page-header">
+    <h1>Chose the next step</h1>
+  </div>
+  
+  <p>
+    <a href="/form" class="btn btn-success" role="button">Fill the form</a>
+    <a href="/result" class="btn btn-primary" role="button">Review results</a>
+  </p>
+
+
+{% endblock %}
+

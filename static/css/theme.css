@@ -17,3 +17,7 @@ body {
   width: auto;
 }
 
+figure.zdjteam {
+  float:left;
+  padding:5px;
+}
