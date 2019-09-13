@@ -33,9 +33,10 @@ class Formdata(db.Model):
     q11 = db.Column(db.Integer)
     q12 = db.Column(db.Integer)
     q13 = db.Column(db.Integer)
+    q14 = db.Column(db.Integer)
 
     def __init__(self, gender, age, education, location, voting, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12,
-                 q13,q14):
+                 q13, q14):
         self.gender = gender
         self.age = age
         self.education = education
@@ -136,9 +137,9 @@ def save():
     q11 = request.form['q11']
     q12 = request.form['q12']
     q13 = request.form['q13']
-
+    q14 = request.form['q14']
     # Save the data
-    fd = Formdata(gender, age, education, location, voting, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13)
+    fd = Formdata(gender, age, education, location, voting, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14)
     db.session.add(fd)
     db.session.commit()
 
