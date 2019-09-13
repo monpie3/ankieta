@@ -14,12 +14,18 @@
         <select class="form-control" id="gender" name="gender">
 			<option>kobieta</option>
 			<option>mężczyzna</option>
-			<option>Preferuję nie mówić</option>
+			<option>preferuję nie mówić</option>
 		</select>
     </div>
 	<div class="form-group">
         <label for="age">Wiek:</label>
-        <input type="number" class="form-control" id="age" name="age" min="1" max="100" required>
+        <select class="form-control" id="age" name="education">
+        <option>poniżej 18</option>
+        <option selected>18-25</option>
+        <option>25-35</option>
+        <option>35-50</option>
+        <option>powyżej 50</option>
+    </select>
     </div>
     <div class="form-group">
         <label for="education">Wykształcenie:</label>
@@ -27,7 +33,7 @@
 			<option>podstawowe</option>
 			<option>średnie</option>
 			<option>zasadnicze zawodowe</option>
-			<option>wyższe inżynierskie</option>
+			<option selected>wyższe inżynierskie</option>
 			<option>wyższe humanistyczne</option>
 			<option>wyższe okołomedyczne</option>
 		</select>
@@ -38,7 +44,7 @@
 			<option>wieś</option>
 			<option>miasto do 50 tys. mieszkańców</option>
 			<option>miasto do 100 tys. mieszkańców</option>
-			<option>miasto do 250 tys. mieszkańców</option>
+			<option selected>miasto do 250 tys. mieszkańców</option>
 			<option>miasto powyżej 250 tys. mieszkańców</option>
 		</select>
     </div>
@@ -57,16 +63,16 @@
     <b>1. Kiedy Polska powinna wejść do strefy euro?</b>
     <div class="form-group">
         <label class="radio-inline">
-          <input type="radio" name="q1" value="1" checked>Już dawno powinniśmy to zrobić
-        </label>
+          <input type="radio" name="q1" value="1" checked>Tak, już dawno powinniśmy to zrobić
+        </label><br>
         <label class="radio-inline">
-          <input type="radio" name="q1" value="2">W ciągu najbliższych paru lat
-        </label>
+          <input type="radio" name="q1" value="2">Tak, w ciągu najbliższych paru lat
+        </label><br>
         <label class="radio-inline">
-          <input type="radio" name="q1" value="3">Możemy to jeszcze opóźnić nawet o kilkanaście lat
-        </label>
+          <input type="radio" name="q1" value="3">Powinniśmy opóźnić to nawet o kilkanaście lat
+        </label><br>
         <label class="radio-inline">
-          <input type="radio" name="q1" value="4">Powinniśmy walczyć o zostanie przy złotówkach
+          <input type="radio" name="q1" value="4">Nie, powinniśmy walczyć o zostanie przy złotówkach
         </label>
     </div>
 	<!-- 
@@ -83,47 +89,47 @@
     <b>2. Czy należy zmienić prawa podatkowe dotyczące Kościoła katolickiego w Polsce?</b>
     <div class="form-group">
         <label class="radio-inline">
-          <input type="radio" name="q2" value="1" checked> Aktualne prawo jest wystarczające
-        </label>
+          <input type="radio" name="q2" value="1" checked>Tak, wiary nie powinno się podatkować, należy zmniejszyć liczbę podatków płaconych przez Kosciół
+        </label><br>
         <label class="radio-inline">
-          <input type="radio" name="q2" value="2">Organizacje religijne nie powinny być zwalniane z podatków od nieruchomości, działalności wychowawczej, kulturowej, itd.
-        </label>
+          <input type="radio" name="q2" value="2">Tak, organizacje religijne nie powinny być zwalniane z podatków od nieruchomości, działalności wychowawczej, kulturowej itd.
+        </label><br>
         <label class="radio-inline">
-          <input type="radio" name="q2" value="3">Konieczna jest dokumentacja przychodów z datków, zbiórek oraz opłat za sakramenty
-        </label>
+          <input type="radio" name="q2" value="3">Tak, konieczna jest dokumentacja przychodów z datków, zbiórek oraz opłat za sakramenty
+        </label><br>
         <label class="radio-inline">
-          <input type="radio" name="q2" value="4">Należy zwiększyć ryczałty płacone przez parafie
-        </label>
+          <input type="radio" name="q2" value="4">Tak, należy zwiększyć ryczałty płacone przez parafie
+        </label><br>
         <label class="radio-inline">
-          <input type="radio" name="q2" value="5">Wiary nie powinno się podatkować
+          <input type="radio" name="q2" value="5"> Nie, aktualne prawo jest wystarczające
         </label>
     </div>
     <b>3. Czy rekreacyjna marihuana powinna być legalna w Polsce?</b>
     <div class="form-group">
         <label class="radio-inline">
           <input type="radio" name="q3" value="1" checked>Tak
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q3" value="2">Tak, ale hodowla powinna być kontrolowana
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q3" value="3">Nie, ale trzeba zwiększyć dostępność konopii leczniczych
-        </label>
+        </label><br>
         <label class="radio-inline">
-          <input type="radio" name="q3" value="4">Powinno się jej zakazać w każdej formie
+          <input type="radio" name="q3" value="4">Nie, powinno się jej zakazać w każdej formie
         </label>
     </div>
     <b>4. Czy jesteś za zakazem produkcji żywności modyfikowanej GMO?</b>
     <div class="form-group">
         <label class="radio-inline">
           <input type="radio" name="q4" value="1" checked>Tak, trzeba zakazać sprzedaży produktów GMO
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q4" value="2">Nie, ale wszystkie muszą być wyraźnie oznaczone
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q4" value="3">Nie, ale należy wprowadzić zaostrzone testy bezpieczeństwa
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q4" value="4">Nie, GMO poprawia jakość żywności
         </label>
@@ -132,13 +138,13 @@
     <div class="form-group">
         <label class="radio-inline">
           <input type="radio" name="q5" value="1" checked>Tak, trzeba odejść od użycia węgla
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q5" value="2">Nie, sam koszt budowy jest zbyt duży
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q5" value="3">Nie, ryzyko jest zbyt duże
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q5" value="4">Nie, lepszym rozwiązaniem jest elektrownia wodna, słoneczna, wiatrowa
         </label>
@@ -147,10 +153,10 @@
     <div class="form-group">
         <label class="radio-inline">
           <input type="radio" name="q6" value="1" checked>Tak, chroni nas to przed epidemiami
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q6" value="2">Nie, decyzja powinna należeć do rodziców
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q6" value="3">Nie, szczepionki są szkodliwe
         </label>
@@ -159,13 +165,13 @@
     <div class="form-group">
         <label class="radio-inline">
           <input type="radio" name="q7" value="1" checked>Tak, o leczeniu powinny decydować wskazania medyczne i potrzeby pacjenta, nie emocje
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q7" value="2">Nie, chroni ona lekarzy i ich zdrowie psychiczne
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q7" value="3">Nie, ale należy ją zmodyfikować - przykładowo wykluczyć z niej środki antykoncepcyjne
-        </label>
+        </label><br>
 		<label class="radio-inline">
           <input type="radio" name="q7" value="4">Nie, powinna obejmować też farmaceutów
         </label>
@@ -174,10 +180,10 @@
     <div class="form-group">
         <label class="radio-inline">
           <input type="radio" name="q8" value="1" checked>Tak
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q8" value="2">Nie
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q8" value="3">Nie, ale recepta nie powinna być konieczna
         </label>
@@ -186,10 +192,10 @@
     <div class="form-group">
         <label class="radio-inline">
           <input type="radio" name="q9" value="1" checked>Tak, w każdym przypadku
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q9" value="2">Tak, przy obowiązujących ograniczeniach
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q9" value="3">Nie, w żadnym wypadku
         </label>
@@ -198,10 +204,10 @@
     <div class="form-group">
         <label class="radio-inline">
           <input type="radio" name="q10" value="1" checked>Tak
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q10" value="2">Nie
-        </label>
+        </label><br>
 		<label class="radio-inline">
           <input type="radio" name="q10" value="3">Za kilka lat
         </label>
@@ -210,13 +216,13 @@
     <div class="form-group">
         <label class="radio-inline">
           <input type="radio" name="q11" value="1" checked>Tak, proces jest zbyt długi
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q11" value="2">Tak, ślub nie powinien być wymogiem koniecznym
-        </label>
+        </label><br>
 		<label class="radio-inline">
           <input type="radio" name="q11" value="3">Tak, pary homoseksualne powinny mieć możliwość adopcji
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q11" value="4">Nie, aktualne przepisy spełniają swoją rolę
         </label>
@@ -225,11 +231,11 @@
     <div class="form-group">
         <label class="radio-inline">
           <input type="radio" name="q12" value="1" checked>Tak, ale tylko pacjent może o tym zadecydować
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q12" value="2">Tak, ale tylko w przypadkach, gdy pacjent cierpi bez nadziei na poprawę
-        </label>
-		<label class="radio-inline">
+        </label><br>
+		    <label class="radio-inline">
           <input type="radio" name="q12" value="3">Nie
         </label>
     </div>
@@ -237,15 +243,31 @@
     <div class="form-group">
         <label class="radio-inline">
           <input type="radio" name="q13" value="1" checked>Tak, ale tylko w przypadkach umyślnego spowodowania śmierci
-        </label>
+        </label><br>
         <label class="radio-inline">
           <input type="radio" name="q13" value="2">Tak, ale tylko w przypadkach, gdy nie ma wątpliwości o winie oskarżonego
-        </label>
+        </label><br>
 		<label class="radio-inline">
           <input type="radio" name="q13" value="3">Nie, dożywocie jest wystarczającą karą
         </label>
     </div>
-	
+    <b>14. Które z powyższych pytań powinny według Ciebie zostać zadane podczas referendum?</b>
+    <div class="form-group">
+        <input type="checkbox" name="1" value="1"> 1 
+        <input type="checkbox" name="2" value="2"> 2  
+        <input type="checkbox" name="3" value="3"> 3 
+        <input type="checkbox" name="4" value="4"> 4  
+        <input type="checkbox" name="5" value="5"> 5 
+        <input type="checkbox" name="6" value="6"> 6  
+        <input type="checkbox" name="7" value="7"> 7 
+        <input type="checkbox" name="8" value="8"> 8  
+        <input type="checkbox" name="9" value="9"> 9  
+        <input type="checkbox" name="10" value="10"> 10 
+        <input type="checkbox" name="11" value="11"> 11 
+        <input type="checkbox" name="12" value="12"> 12 
+        <input type="checkbox" name="13" value="13"> 13 
+    </div>
+    <br>
     <button type="submit" class="btn btn-default">Save</button>
 </form>
 
