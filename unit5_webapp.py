@@ -5,7 +5,7 @@ import statistics
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///formdata.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///formdata.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'True'
 
 db = SQLAlchemy(app)
@@ -35,7 +35,7 @@ class Formdata(db.Model):
     q13 = db.Column(db.Integer)
 
     def __init__(self, gender, age, education, location, voting, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12,
-                 q13):
+                 q13,q14):
         self.gender = gender
         self.age = age
         self.education = education
@@ -54,6 +54,7 @@ class Formdata(db.Model):
         self.q11 = q11
         self.q12 = q12
         self.q13 = q13
+        self.q14 = q14
 
 
 db.create_all()
