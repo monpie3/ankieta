@@ -4,76 +4,248 @@
 {% block content %}
 
 <div class="page-header">
-  <h1>Please fill the form</h1>
+  <h1>Prosimy o wypełnienie poniższej ankiety</h1>
 </div>
 
 <form role="form" action="/save" method="post">
-    <h3>Personal data</h3>
+    <h3>Trochę o Tobie</h3>
     <div class="form-group">
-        <label for="firstname">Firstname:</label>
-        <input type="text" class="form-control" id="firstname" name="firstname" required>
+        <label for="gender">Płeć:</label>
+        <select class="form-control" id="gender" name="gender">
+			<option>kobieta</option>
+			<option>mężczyzna</option>
+			<option>Preferuję nie mówić</option>
+		</select>
     </div>
-    <div class="form-group">
-        <label for="email">Email address:</label>
-        <input type="email" class="form-control" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-        <label for="age">Age:</label>
+	<div class="form-group">
+        <label for="age">Wiek:</label>
         <input type="number" class="form-control" id="age" name="age" min="1" max="100" required>
     </div>
-    <h3>Employee Job Satisfaction</h3>
     <div class="form-group">
-      <label for="income">Annual income $:</label>
-      <select class="form-control" id="income" name="income">
-        <option>20</option>
-        <option>50</option>
-        <option>100</option>
-        <option>150</option>
-      </select>
+        <label for="education">Wykształcenie:</label>
+        <select class="form-control" id="education" name="education">
+			<option>podstawowe</option>
+			<option>średnie</option>
+			<option>zasadnicze zawodowe</option>
+			<option>wyższe inżynierskie</option>
+			<option>wyższe humanistyczne</option>
+			<option>wyższe okołomedyczne</option>
+		</select>
     </div>
     <div class="form-group">
-        <label for="satisfaction">Considering everything, how satisfied are you with your job?</label>
-        <input type="number" class="form-control" id="satisfaction" name="satisfaction" min="1" max="5" required>
+        <label for="location">Miejsce zamieszkania:</label>
+        <select class="form-control" id="location" name="location">
+			<option>wieś</option>
+			<option>miasto do 50 tys. mieszkańców</option>
+			<option>miasto do 100 tys. mieszkańców</option>
+			<option>miasto do 250 tys. mieszkańców</option>
+			<option>miasto powyżej 250 tys. mieszkańców</option>
+		</select>
     </div>
-    <h3>Programming skills</h3>
-    <b>Rate your proficiency with Python language</b>
     <div class="form-group">
-        <label class="radio-inline">
-          <input type="radio" name="q1" value="1">1 (Beginner)
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="q1" value="2">2 (Junior)
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="q1" value="3" checked>3 (Middle)
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="q1" value="4">4 (Senior)
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="q1" value="5">5 (Expert)
-        </label>
-    </div>
-    <b>Rate your proficiency with Flask framework</b>
-    <div class="form-group">
-        <label class="radio-inline">
-          <input type="radio" name="q2" value="1">1 (Beginner)
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="q2" value="2">2 (Junior)
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="q2" value="3" checked>3 (Middle)
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="q2" value="4">4 (Senior)
-        </label>
-        <label class="radio-inline">
-          <input type="radio" name="q2" value="5">5 (Expert)
-        </label>
-    </div>
+        <label for="voting">Czy kiedykolwiek opuściłeś/aś referendum, do którego głosowania byłeś/aś uprawniony/a?</label>
+        <select class="form-control" id="voting" name="voting">
+			<option>Nigdy</option>
+			<option>Raz</option>
+			<option>Parę razy</option>
+			<option>Nie chodzę z przekonania</option>
+		</select>
+    </div>	
+	
 
-
+    <h3>Przejdźmy do konkretów</h3>
+    <b>1. Kiedy Polska powinna wejść do strefy euro?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q1" value="1" checked>Już dawno powinniśmy to zrobić
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q1" value="2">W ciągu najbliższych paru lat
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q1" value="3">Możemy to jeszcze opóźnić nawet o kilkanaście lat
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q1" value="4">Powinniśmy walczyć o zostanie przy złotówkach
+        </label>
+    </div>
+	<!-- 
+	Czy to pytanie powinno pojawić się na referendum?
+	<div class="form-group">
+		<label class="radio-inline">
+          <input type="radio" name="r1" value="1" checked> Tak
+        </label>
+		<label class="radio-inline">
+          <input type="radio" name="r1" value="2"> Nie
+        </label>
+	</div>
+	-->
+    <b>2. Czy należy zmienić prawa podatkowe dotyczące Kościoła katolickiego w Polsce?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q2" value="1" checked> Aktualne prawo jest wystarczające
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q2" value="2">Organizacje religijne nie powinny być zwalniane z podatków od nieruchomości, działalności wychowawczej, kulturowej, itd.
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q2" value="3">Konieczna jest dokumentacja przychodów z datków, zbiórek oraz opłat za sakramenty
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q2" value="4">Należy zwiększyć ryczałty płacone przez parafie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q2" value="5">Wiary nie powinno się podatkować
+        </label>
+    </div>
+    <b>3. Czy rekreacyjna marihuana powinna być legalna w Polsce?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q3" value="1" checked>Tak
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q3" value="2">Tak, ale hodowla powinna być kontrolowana
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q3" value="3">Nie, ale trzeba zwiększyć dostępność konopii leczniczych
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q3" value="4">Powinno się jej zakazać w każdej formie
+        </label>
+    </div>
+    <b>4. Czy jesteś za zakazem produkcji żywności modyfikowanej GMO?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q4" value="1" checked>Tak, trzeba zakazać sprzedaży produktów GMO
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q4" value="2">Nie, ale wszystkie muszą być wyraźnie oznaczone
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q4" value="3">Nie, ale należy wprowadzić zaostrzone testy bezpieczeństwa
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q4" value="4">Nie, GMO poprawia jakość żywności
+        </label>
+    </div>
+    <b>5. Czy sądzisz, że budowa elektrowni jądrowych w Polsce jest konieczna?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q5" value="1" checked>Tak, trzeba odejść od użycia węgla
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q5" value="2">Nie, sam koszt budowy jest zbyt duży
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q5" value="3">Nie, ryzyko jest zbyt duże
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q5" value="4">Nie, lepszym rozwiązaniem jest elektrownia wodna, słoneczna, wiatrowa
+        </label>
+    </div>	
+    <b>6. Czy szczepienia dzieci powinny być obowiązkowe?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q6" value="1" checked>Tak, chroni nas to przed epidemiami
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q6" value="2">Nie, decyzja powinna należeć do rodziców
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q6" value="3">Nie, szczepionki są szkodliwe
+        </label>
+    </div>	
+    <b>7. Czy klauzula sumienia lekarzy powinna zostać zniesiona?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q7" value="1" checked>Tak, o leczeniu powinny decydować wskazania medyczne i potrzeby pacjenta, nie emocje
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q7" value="2">Nie, chroni ona lekarzy i ich zdrowie psychiczne
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q7" value="3">Nie, ale należy ją zmodyfikować - przykładowo wykluczyć z niej środki antykoncepcyjne
+        </label>
+		<label class="radio-inline">
+          <input type="radio" name="q7" value="4">Nie, powinna obejmować też farmaceutów
+        </label>
+    </div>	
+    <b>8. Czy tabletki "dzień po" powinny być zakazane?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q8" value="1" checked>Tak
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q8" value="2">Nie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q8" value="3">Nie, ale recepta nie powinna być konieczna
+        </label>
+    </div>	
+    <b>9. Czy aborcja powinna być legalna?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q9" value="1" checked>Tak, w każdym przypadku
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q9" value="2">Tak, przy obowiązujących ograniczeniach
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q9" value="3">Nie, w żadnym wypadku
+        </label>
+    </div>
+     <b>10. Czy należy zalegalizować małżeństwa homoseksualne?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q10" value="1" checked>Tak
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q10" value="2">Nie
+        </label>
+		<label class="radio-inline">
+          <input type="radio" name="q10" value="3">Za kilka lat
+        </label>
+    </div>
+	<b>11. Czy należy zmienić przepisy adopcyjne?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q11" value="1" checked>Tak, proces jest zbyt długi
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q11" value="2">Tak, ślub nie powinien być wymogiem koniecznym
+        </label>
+		<label class="radio-inline">
+          <input type="radio" name="q11" value="3">Tak, pary homoseksualne powinny mieć możliwość adopcji
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q11" value="4">Nie, aktualne przepisy spełniają swoją rolę
+        </label>
+    </div>
+	<b>12. Czy eutanazja w Polsce powinna być legalna?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q12" value="1" checked>Tak, ale tylko pacjent może o tym zadecydować
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q12" value="2">Tak, ale tylko w przypadkach, gdy pacjent cierpi bez nadziei na poprawę
+        </label>
+		<label class="radio-inline">
+          <input type="radio" name="q12" value="3">Nie
+        </label>
+    </div>
+	<b>13. Czy należy przywrócić karę śmierci?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q13" value="1" checked>Tak, ale tylko w przypadkach umyślnego spowodowania śmierci
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q13" value="2">Tak, ale tylko w przypadkach, gdy nie ma wątpliwości o winie oskarżonego
+        </label>
+		<label class="radio-inline">
+          <input type="radio" name="q13" value="3">Nie, dożywocie jest wystarczającą karą
+        </label>
+    </div>
+	
     <button type="submit" class="btn btn-default">Save</button>
 </form>
 
