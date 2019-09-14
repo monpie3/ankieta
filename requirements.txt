@@ -1,0 +1,4 @@
+Flask==1.0.3
+Flask_SQLAlchemy==2.4.0
+Django==2.2.5
+django_heroku==0.3.1
