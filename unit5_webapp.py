@@ -33,7 +33,7 @@ class Formdata(db.Model):
     q11 = db.Column(db.Integer)
     q12 = db.Column(db.Integer)
     q13 = db.Column(db.Integer)
-    q14 = db.Column(db.Integer)
+    q14 = db.Column(db.String)
 
     def __init__(self, gender, age, education, location, voting, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12,
                  q13, q14):
@@ -55,7 +55,7 @@ class Formdata(db.Model):
         self.q11 = q11
         self.q12 = q12
         self.q13 = q13
-        self.q14 = q14
+        self.q14 = ",".join(request.form.getlist('q14'))
 
 
 db.create_all()
