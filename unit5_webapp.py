@@ -33,7 +33,7 @@ class Formdata(db.Model):
     q11 = db.Column(db.Integer)
     q12 = db.Column(db.Integer)
     q13 = db.Column(db.Integer)
-    q14 = db.Column(db.String)
+    q14 = db.Column(db.String(120))
 
     def __init__(self, gender, age, education, location, voting, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12,
                  q13, q14):
@@ -55,7 +55,7 @@ class Formdata(db.Model):
         self.q11 = q11
         self.q12 = q12
         self.q13 = q13
-        self.q14 = ",".join(request.form.getlist('q14'))
+        self.q14 = q14
 
 
 db.create_all()
@@ -86,34 +86,53 @@ def show_raw():
 def show_result():
     fd_list = db.session.query(Formdata).all()
 
-    # Some simple statistics for sample questions
-    satisfaction = []
-    q1 = []
-    q2 = []
-    for el in fd_list:
-        satisfaction.append(int(el.satisfaction))
-        q1.append(int(el.q1))
-        q2.append(int(el.q2))
+    qu1 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
+    qu2 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0}}
+    qu3 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
+    qu4 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
+    qu5 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
+    qu6 = {"answers": {"1": 0, "2": 0, "3": 0}}
+    qu7 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
+    qu8 = {"answers": {"1": 0, "2": 0, "3": 0}}
+    qu9 = {"answers": {"1": 0, "2": 0, "3": 0}}
+    qu10 = {"answers": {"1": 0, "2": 0, "3": 0}}
+    qu11 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
+    qu12 = {"answers": {"1": 0, "2": 0, "3": 0}}
+    qu13 = {"answers": {"1": 0, "2": 0, "3": 0}}
+    qu14 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0, "10": 0, "11": 0, "12": 0, "13": 0}}
 
-    if len(satisfaction) > 0:
-        mean_satisfaction = statistics.mean(satisfaction)
-    else:
-        mean_satisfaction = 0
+    for row in fd_list:
+        qu1["answers"][str(row.q1)] += 1
+        qu2["answers"][str(row.q2)] += 1
+        qu3["answers"][str(row.q3)] += 1
+        qu4["answers"][str(row.q4)] += 1
+        qu5["answers"][str(row.q5)] += 1
+        qu6["answers"][str(row.q6)] += 1
+        qu7["answers"][str(row.q7)] += 1
+        qu8["answers"][str(row.q8)] += 1
+        qu9["answers"][str(row.q9)] += 1
+        qu10["answers"][str(row.q10)] += 1
+        qu11["answers"][str(row.q11)] += 1
+        qu12["answers"][str(row.q12)] += 1
+        qu13["answers"][str(row.q13)] += 1
+        
+        # Multiple answers for q14
+        answersList = row.q14.split(',')
+        for answ in answersList:
+            qu14["answers"][str(answ)] += 1
 
-    if len(q1) > 0:
-        mean_q1 = statistics.mean(q1)
-    else:
-        mean_q1 = 0
+    allQus = [qu1, qu2, qu3, qu4, qu5, qu6, qu7, qu8, qu9, qu10, qu11, qu12, qu13, qu14]
+    allRows = []
+    
+    for qu in allQus:
+        temp = []
+        for key, answer in qu["answers"].items():
+            temp.append([key, answer])
+        allRows.append(temp)
 
-    if len(q2) > 0:
-        mean_q2 = statistics.mean(q2)
-    else:
-        mean_q2 = 0
+    print(allRows)
 
-    # Prepare data for google charts
-    data = [['Satisfaction', mean_satisfaction], ['Python skill', mean_q1], ['Flask skill', mean_q2]]
-
-    return render_template('result.html', data=data)
+    return render_template('result.html', allQus = allQus, allRows=allRows)
 
 
 @app.route("/save", methods=['POST'])
@@ -137,7 +156,7 @@ def save():
     q11 = request.form['q11']
     q12 = request.form['q12']
     q13 = request.form['q13']
-    q14 = request.form['q14']
+    q14 = ",".join(request.form.getlist('q14'))
     # Save the data
     fd = Formdata(gender, age, education, location, voting, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14)
     db.session.add(fd)

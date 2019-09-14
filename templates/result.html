@@ -2,25 +2,45 @@
 {% extends "base.html" %}
 
 {% block content %}
-
 <div class="page-header">
     <h1>Results</h1>
-    <div id="chart_div"> </div>
+
+    {% set ns = namespace(cur = 1) %}
+    {% for qu in allQus %}
+    <div id="chart_div{{ ns.cur }}"> </div>
+    {% set ns.cur = ns.cur + 1 %}
+    {% endfor %}
 </div>
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
   google.load('visualization', '1', {'packages':['corechart']});
-  google.setOnLoadCallback(drawChart);
-  function drawChart() {
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Question');
-    data.addColumn('number', 'Average answer');
-    data.addRows( {{ data|tojson }} );
-    var chart = new google.visualization.ColumnChart(
-            document.getElementById('chart_div'));
-    chart.draw(data, {legend: 'none', vAxis: {baseline: 0} });
-  }
+
+    {% set ns.cur = 1 %}
+    {% for qu in allQus %}
+    google.setOnLoadCallback(drawChart{{ ns.cur }});
+    {% set ns.cur = ns.cur + 1 %}
+    {% endfor %}
+
+    {% set ns.cur = 1 %}
+    {% for qu in allQus %}
+    
+    function drawChart{{ ns.cur }}() {
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Question');
+      data.addColumn('number', 'ilosc odpowiedzi');
+      //data.addRows([["1", 1], ["22", 33]]);
+      data.addRows({{ allRows[ns.cur-1]|tojson }});
+      var chart = new google.visualization.ColumnChart(
+              document.getElementById('chart_div{{ ns.cur }}'));
+      chart.draw(data, {legend: 'none', vAxis: {baseline: 0} });
+    }
+
+    {% set ns.cur = ns.cur + 1 %}
+    {% endfor %}
+
+
 </script>
+
 
 {% endblock %}
