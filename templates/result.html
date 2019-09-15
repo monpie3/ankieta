@@ -5,11 +5,20 @@
 <div class="page-header">
     <h1>Wyniki</h1>
 
-    {% set ns = namespace(cur = 1) %}
-    {% for qu in allQus %}
-    <div id="chart_div{{ ns.cur }}"> </div>
-    {% set ns.cur = ns.cur + 1 %}
-    {% endfor %}
+    <div class="container">
+      <div class="row">
+        {% set ns = namespace(cur = 1) %}
+        {% for qu in allQus %}
+
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+          <div class="chart-container"><div id="chart_div{{ ns.cur }}"> </div></div>
+
+        </div>
+        {% set ns.cur = ns.cur + 1 %}
+        {% endfor %}
+      </div>
+    </div>
 </div>
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -31,9 +40,24 @@
       data.addColumn('number', 'ilosc odpowiedzi');
       //data.addRows([["1", 1], ["22", 33]]);
       data.addRows({{ allRows[ns.cur-1]|tojson }});
+
+      var options = {
+        title: "Question {{ ns.cur }}",
+        legend: 'none',
+        vAxis: {
+          baseline: 0,
+          title: "Count",
+          //format: '0'
+        },
+        hAxis: {
+          title: "Answers"
+        },
+        
+      };
+
       var chart = new google.visualization.ColumnChart(
               document.getElementById('chart_div{{ ns.cur }}'));
-      chart.draw(data, {legend: 'none', vAxis: {baseline: 0} });
+      chart.draw(data, options);
     }
 
     {% set ns.cur = ns.cur + 1 %}
