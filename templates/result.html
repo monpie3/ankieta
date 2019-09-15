@@ -37,20 +37,20 @@
     function drawChart{{ ns.cur }}() {
       var data = new google.visualization.DataTable();
       data.addColumn('string', 'Question');
-      data.addColumn('number', 'ilosc odpowiedzi');
+      data.addColumn('number', 'Ilość odpowiedzi');
       //data.addRows([["1", 1], ["22", 33]]);
       data.addRows({{ allRows[ns.cur-1]|tojson }});
 
       var options = {
-        title: "Question {{ ns.cur }}",
+        title: "Pytanie {{ ns.cur }}",
         legend: 'none',
         vAxis: {
           baseline: 0,
-          title: "Count",
+          title: "Liczba ankietowanych",
           //format: '0'
         },
         hAxis: {
-          title: "Answers"
+          title: "Numer wybranej odpowiedzi"
         },
         
       };
