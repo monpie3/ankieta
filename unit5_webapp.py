@@ -1,13 +1,15 @@
 from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from dotenv import load_dotenv
 import statistics
+import os
 
+load_dotenv('./.env', verbose=True)
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///formdata.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'True'
 
+app.config.from_object(os.environ['APP_SETTINGS'])
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
@@ -86,19 +88,19 @@ def show_raw():
 def show_result():
     fd_list = db.session.query(Formdata).all()
 
-    qu1 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
-    qu2 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0}}
-    qu3 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
-    qu4 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
-    qu5 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
-    qu6 = {"answers": {"1": 0, "2": 0, "3": 0}}
-    qu7 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
-    qu8 = {"answers": {"1": 0, "2": 0, "3": 0}}
-    qu9 = {"answers": {"1": 0, "2": 0, "3": 0}}
-    qu10 = {"answers": {"1": 0, "2": 0, "3": 0}}
-    qu11 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
-    qu12 = {"answers": {"1": 0, "2": 0, "3": 0}}
-    qu13 = {"answers": {"1": 0, "2": 0, "3": 0}}
+    qu1 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0}}
+    qu2 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0}}
+    qu3 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0}}
+    qu4 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0}}
+    qu5 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0}}
+    qu6 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
+    qu7 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0}}
+    qu8 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
+    qu9 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
+    qu10 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
+    qu11 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0}}
+    qu12 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
+    qu13 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0}}
     qu14 = {"answers": {"1": 0, "2": 0, "3": 0, "4": 0, "5": 0, "6": 0, "7": 0, "8": 0, "9": 0, "10": 0, "11": 0, "12": 0, "13": 0}}
 
     for row in fd_list:
