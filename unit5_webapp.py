@@ -19,7 +19,7 @@ class Formdata(db.Model):
     __tablename__ = 'formdata'
     id = db.Column(db.Integer, primary_key=True)
     created_at = db.Column(db.DateTime, default=datetime.now)
-    gender = db.Column(db.Integer)
+    gender = db.Column(db.String(120))
     age = db.Column(db.Integer)
     education = db.Column(db.Integer)
     location = db.Column(db.Integer)
