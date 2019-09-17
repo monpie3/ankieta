@@ -2,11 +2,15 @@ from flask import Flask, render_template, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import statistics
+import os
+
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///formdata.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'True'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///formdata.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'FALSE'
 
 db = SQLAlchemy(app)
 
