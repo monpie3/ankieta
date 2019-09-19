@@ -8,6 +8,7 @@ import os
 load_dotenv('./.env', verbose=True)
 app = Flask(__name__)
 
+#app.config.from_object(os.environ['APP_SETTINGS'])
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'FALSE'
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 db = SQLAlchemy(app)
@@ -65,7 +66,7 @@ db.create_all()
 @app.before_first_request
 def create_tables():
     db.create_all()
-    
+
 @app.route("/")
 def welcome():
     return render_template('welcome.html')
