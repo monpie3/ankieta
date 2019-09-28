@@ -1,2 +1,4 @@
-.env
-*.env
+*.log
+*.sql
+*.sqlite
+__pycache__
